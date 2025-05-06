@@ -200,7 +200,7 @@ def calculate_mixed_system_metrics(config, st_area, pv_area, hp_capacity_kw, sto
     irr_display = "N/A (无法计算IRR)"
     
     # Add debugging output
-    st.write("Debug: Cash flows:", cash_flows)
+    # st.write("Debug: Cash flows:", cash_flows)
     
     # np.irr requires cash flows to contain both positive and negative values
     if cash_flows[0] < 0:  # Ensure initial investment is negative
