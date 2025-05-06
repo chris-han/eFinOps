@@ -497,7 +497,10 @@ def whatif_page():
                 # Change the penalty to a large negative number (e.g., -1e9) instead of np.inf. 
                 # This way, the optimizer will still prefer solutions with calculable IRR, but it won't completely disregard solutions where IRR cannot be calculated, 
                 # allowing it to explore a wider range of possibilities
-                return -metrics['irr_value'] if metrics['irr_value'] != -np.inf else -1e9
+                # return -metrics['irr_value'] if metrics['irr_value'] != -np.inf else -1e9
+                return metrics['irr_value'] if metrics['irr_value'] != -np.inf else -1e9
+            
+            
             elif optimization_strategy == '最小化投资回收期 (Payback Period)':
                  # Return numerical payback period. Penalize non-recovered projects.
                  return metrics['payback_year_num'] if metrics['payback_year_num'] != float('inf') else config['project_lifespan_years'] * 2 # Penalize non-recovery
