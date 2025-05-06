@@ -628,11 +628,11 @@ st.sidebar.markdown(
 # Add new function to display the paper
 def paper_page():
     try:
-        with open('E-FinOps 框架.md', 'r', encoding='utf-8') as file:
+        with open('README.md', 'r', encoding='utf-8') as file:
             content = file.read()
             st.markdown(content)
     except FileNotFoundError:
-        st.error("论文文件未找到。请确保 'E-FinOps 框架.md' 文件存在于应用目录中。")
+        st.error("论文文件未找到。请确保 'README.md' 文件存在于应用目录中。")
     except Exception as e:
         st.error(f"加载论文时发生错误: {str(e)}")
 
