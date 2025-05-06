@@ -6,11 +6,11 @@ authors = [
     {name = "Chris Han", email = "chrishan_ca@outlook.com"}
 ]
 dependencies = [
+    "python==3.11",
     "streamlit==1.45.0",
     "numpy-financial==1.0.0",
     "numpy==2.0.1",
-    "pandas==2.2.3",
-    "python==3.11",
+    "pandas==2.2.3",    
 ]
 
 [build-system]
