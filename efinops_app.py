@@ -385,7 +385,7 @@ def whatif_page():
     st.write("---")
 
     # --- What If Sliders ---
-    st.subheader("混合供能方案配置 (通过滑块调整设备规模)")
+    st.subheader("组合供能方案配置 (通过滑块调整设备规模)")
 
     # Initialize slider values in session state if not already present
     if 'sliders' not in st.session_state:
@@ -436,7 +436,7 @@ def whatif_page():
         config, st_area, pv_area, hp_capacity_kw, storage_capacity_kwh
     )
 
-    st.subheader("混合供能方案效果")
+    st.subheader("组合供能方案效果")
     col_metrics1, col_metrics2, col_metrics3 = st.columns(3)
 
     col_metrics1.metric("总投资 (CAPEX)", f"¥{mixed_metrics['total_capex']:,.0f}") # Display CAPEX as integer
@@ -606,24 +606,42 @@ def whatif_page():
 st.sidebar.image("total_energy_solution.png")
 # --- Main App Navigation ---
 st.sidebar.title("导航")
-page = st.sidebar.radio("", ["配置页面", "What if 投资分析页面"])
+page = st.sidebar.radio("", ["配置页面", "What if 投资分析页面", "论文"])
 
 st.sidebar.markdown("---")
 st.sidebar.header("关于")
 st.sidebar.markdown(
     """
     **工业园区能耗财务运营框架 (E-FinOps)**
-    优化混合供能组合及成本管理
+    """
+)
 
+
+st.sidebar.markdown(
+    """
     基于 [FinOps Foundation Framework](https://www.finops.org/) 理念应用于能源领域。
 
     **免责声明:** 本应用基于简化模型进行估算，仅供概念演示和初步分析参考，非精确工程计算结果。
     """
 )
 
+# Add new function to display the paper
+def paper_page():
+    try:
+        with open('E-FinOps 框架.md', 'r', encoding='utf-8') as file:
+            content = file.read()
+            st.markdown(content)
+    except FileNotFoundError:
+        st.error("论文文件未找到。请确保 'E-FinOps 框架.md' 文件存在于应用目录中。")
+    except Exception as e:
+        st.error(f"加载论文时发生错误: {str(e)}")
 
-
+# Modify the navigation logic
 if page == "配置页面":
     config_page()
-else:
+elif page == "What if 投资分析页面":
     whatif_page()
+else:  # page == "论文"
+    paper_page()
+    
+
