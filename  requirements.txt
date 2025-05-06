@@ -1,4 +1,4 @@
-streamlit
-numpy-financial
-numpy
-pandas
+streamlit=1.45.0
+numpy-financial=1.0.0=pypi_0
+numpy=2.0.1
+pandas=2.2.3

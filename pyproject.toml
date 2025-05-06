@@ -1,0 +1,20 @@
+[project]
+name = "efinops_app"  # Replace with your actual project name
+version = "0.1.0"  # Replace with your project version
+description = "A Streamlit app for E-FinOps investment analysis."  # Replace with your project description
+authors = [
+    {name = "Chris Han", email = "chrishan_ca@outlook.com"}
+]
+dependencies = [
+    "streamlit==1.45.0",
+    "numpy-financial==1.0.0",
+    "numpy==2.0.1",
+    "pandas==2.2.3",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]  # List of packages that are parts of the project
